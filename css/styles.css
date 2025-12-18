@@ -1,0 +1,1396 @@
+/* 
+  CSS ПЕРЕМЕННЫЕ (CSS Custom Properties)
+  Блок :root определяет CSS переменные, которые можно использовать
+  во всём файле. Это удобно для поддержания единого стиля:
+  если нужно изменить основной цвет сайта, достаточно изменить
+  его только здесь, а не во всех местах кода.
+  
+  Синтаксис: --имя-переменной: значение;
+  Использование: color: var(--имя-переменной);
+*/
+:root {
+  --font-size: 16px;
+  --background: #ffffff;
+  --foreground: #1a1a1a;
+  --card: #ffffff;
+  --card-foreground: #1a1a1a;
+  --primary: #2563eb;
+  --primary-foreground: #ffffff;
+  --secondary: #4b5563;
+  --secondary-foreground: #ffffff;
+  --muted: #f3f4f6;
+  --muted-foreground: #6b7280;
+  --accent: #ff6b35;
+  --accent-foreground: #ffffff;
+  --destructive: #d4183d;
+  --destructive-foreground: #ffffff;
+  --border: rgba(0, 0, 0, 0.1);
+  --input: transparent;
+  --input-background: #f3f4f6;
+  --radius: 0.5rem;
+  --spacing: 0.25rem;
+}
+
+/* 
+  СБРОС СТИЛЕЙ БРАУЗЕРА
+  Разные браузеры применяют разные стили по умолчанию.
+  Эти правила "обнуляют" их для единообразия.
+*/
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Noto Sans", sans-serif !important;
+}
+
+/* Базовый размер шрифта для всего документа */
+html {
+  font-size: var(--font-size);
+}
+
+/* 
+  ПРИМЕР ИСПОЛЬЗОВАНИЯ FLEXBOX #1 - LAYOUT СТРАНИЦЫ
+  Здесь body настроен как Flexbox контейнер с вертикальной осью.
+  
+  display: flex - активирует Flexbox layout
+  flex-direction: column - элементы располагаются вертикально (сверху вниз)
+  min-height: 100vh - минимальная высота = высота экрана (viewport height)
+  
+  Это классический приём для "липкого" футера: header и main занимают
+  минимум места, а footer автоматически прижимается к низу страницы.
+*/
+body {
+  font-family: "Noto Sans", sans-serif;
+  background-color: var(--background);
+  color: var(--foreground);
+  line-height: 1.5;
+  min-height: 100vh;
+  display: flex; /* Flexbox для вертикального layout */
+  flex-direction: column; /* Вертикальная ось (сверху вниз) */
+}
+
+/* Стили для заголовков */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+h1 {
+  font-size: 1.5rem;
+}
+
+h2 {
+  font-size: 1.25rem;
+}
+
+h3 {
+  font-size: 1.125rem;
+}
+
+h4 {
+  font-size: 1rem;
+}
+
+p {
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+button {
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+input,
+textarea,
+select {
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Контейнер ограничивает ширину контента и центрирует его */
+.container {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* main-content растягивается и занимает всё доступное пространство (для липкого футера) */
+.main-content {
+  flex: 1;
+}
+
+/* 
+  СТИЛИ ШАПКИ САЙТА
+*/
+.header {
+  background-color: #4a5568;
+  color: var(--secondary-foreground);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* 
+  ПРИМЕР ИСПОЛЬЗОВАНИЯ FLEXBOX #2 - ШАПКА САЙТА
+  Класс header-content использует Flexbox для размещения элементов шапки.
+  
+  display: flex - активирует Flexbox
+  align-items: center - выравнивает все дочерние элементы по вертикальному центру
+  justify-content: space-between - распределяет элементы:
+    - первый (логотип) прижимается к левому краю
+    - последний (корзина) к правому краю
+    - средние элементы (навигация) получают пространство между ними
+  
+  Это идеальный способ создать горизонтальную шапку с логотипом слева,
+  меню по центру и кнопками справа.
+*/
+.header-content {
+  display: flex; /* Flexbox для горизонтального размещения */
+  align-items: center; /* Вертикальное выравнивание по центру */
+  justify-content: space-between; /* Распределение: край-центр-край */
+  padding: 1rem 0;
+}
+
+/* Логотип также использует Flexbox */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  cursor: pointer;
+}
+
+/* Контейнер для иконок логотипа */
+.logo-icons {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.logo h1 {
+  color: var(--secondary-foreground) !important;
+  margin: 0 !important;
+  font-size: 1.25rem !important;
+  font-weight: 500 !important;
+}
+
+.logo p {
+  font-size: 0.875rem !important;
+  color: rgba(255, 255, 255, 0.8) !important;
+  margin: 0 !important;
+}
+
+.icon {
+  width: 2rem;
+  height: 2rem;
+}
+
+.icon-small {
+  width: 1rem;
+  height: 1rem;
+}
+
+/* 
+  АДАПТИВНАЯ НАВИГАЦИЯ
+  Класс nav-desktop использует Flexbox для горизонтального меню.
+  
+  По умолчанию (display: none) навигация скрыта на мобильных устройствах.
+  Медиа-запрос @media (min-width: 768px) показывает её на планшетах
+  и десктопах, активируя Flexbox (display: flex).
+  
+  Это пример адаптивного дизайна через медиа-запросы.
+*/
+.nav-desktop {
+  display: none;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+/* 
+  МЕДИА-ЗАПРОС ДЛЯ АДАПТИВНОСТИ
+  @media (min-width: 768px) означает: "применить эти стили,
+  если ширина экрана >= 768 пикселей" (планшеты и десктопы).
+  
+  Медиа-запросы - это основа адаптивного дизайна. Они позволяют
+  менять стили в зависимости от размера экрана устройства.
+*/
+@media (min-width: 768px) {
+  .nav-desktop {
+    display: flex; /* На больших экранах показываем меню как Flexbox */
+  }
+}
+
+/* Стили для ссылок навигации */
+.nav-link {
+  color: var(--secondary-foreground);
+  transition: color 0.15s;
+  padding: 0.5rem 0;
+}
+
+.nav-link:hover {
+  color: var(--accent);
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.phone-desktop {
+  display: none;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--secondary-foreground);
+}
+
+@media (min-width: 1024px) {
+  .phone-desktop {
+    display: flex;
+  }
+}
+
+.cart-btn {
+  position: relative;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: var(--secondary-foreground);
+  padding: 0.5rem;
+  border-radius: var(--radius);
+  transition: background-color 0.15s;
+}
+
+.cart-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.cart-badge {
+  position: absolute;
+  top: -0.5rem;
+  right: -0.5rem;
+  background-color: var(--accent);
+  color: white;
+  border-radius: 9999px;
+  min-width: 20px;
+  height: 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  padding: 0 0.375rem;
+}
+
+.cart-badge.hidden {
+  display: none;
+}
+
+.footer {
+  background-color: #4a5568;
+  color: var(--secondary-foreground);
+  margin-top: auto;
+  padding: 3rem 0 2rem;
+}
+
+/* 
+  ПРИМЕР ИСПОЛЬЗОВАНИЯ CSS GRID #1 - ФУТЕР
+  Класс footer-grid-grid использует CSS Grid Layout для создания
+  адаптивной сетки колонок в футере.
+  
+  display: grid - активирует Grid Layout
+  grid-template-columns: repeat(1, 1fr) - создаёт 1 колонку,
+    которая занимает всю доступную ширину (1fr = 1 "фракция")
+  gap: 3rem - отступ между элементами сетки
+  
+  Grid идеален для двумерных layout (строки + колонки).
+  В отличие от Flexbox, Grid позволяет управлять позиционированием
+  элементов одновременно по горизонтали и вертикали.
+*/
+.footer-grid-grid {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 3rem;
+  margin-bottom: 2rem;
+}
+
+/* 
+  МЕДИА-ЗАПРОС ДЛЯ АДАПТИВНОГО GRID
+  На экранах шириной >= 768px меняем количество колонок с 1 на 4.
+  
+  grid-template-columns: repeat(4, 1fr) означает:
+  "создать 4 колонки, каждая занимает равную долю доступного пространства"
+  
+  Таким образом на мобильных устройствах блоки футера располагаются
+  вертикально (друг под другом), а на десктопе - горизонтально (в 4 колонки).
+  
+  Это пример адаптивного Grid Layout.
+*/
+@media (min-width: 768px) {
+  .footer-grid-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+  }
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+@media (min-width: 768px) {
+  .footer-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.footer h3 {
+  color: var(--secondary-foreground);
+  margin-bottom: 1rem;
+  font-size: 1.125rem;
+  font-weight: 600;
+}
+
+.footer ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+.footer ul li {
+  margin-bottom: 0.75rem;
+}
+
+.footer-link {
+  color: rgba(255, 255, 255, 0.8);
+  transition: color 0.15s;
+}
+
+.footer-link:hover {
+  color: var(--accent);
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.social-links {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.social-links a {
+  color: rgba(255, 255, 255, 0.8);
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.social-links a:hover {
+  color: white;
+  transform: translateY(-2px);
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  margin-top: 2.5rem;
+  padding-top: 1.5rem;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.875rem;
+}
+
+.footer-bottom p {
+  margin-bottom: 0.25rem;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius);
+  font-weight: 500;
+  transition: all 0.15s;
+  cursor: pointer;
+  border: none;
+  font-size: 1rem;
+}
+
+.btn-primary {
+  background-color: var(--primary) !important;
+  color: var(--primary-foreground) !important;
+  border: none !important;
+}
+
+.btn-primary:hover {
+  background-color: rgba(37, 99, 235, 0.9) !important;
+}
+
+.btn-accent {
+  background-color: var(--accent) !important;
+  color: var(--accent-foreground) !important;
+  border: none !important;
+}
+
+.btn-accent:hover {
+  background-color: rgba(255, 107, 53, 0.9) !important;
+}
+
+.btn-outline {
+  background-color: transparent !important;
+  border: 1px solid var(--border) !important;
+  color: var(--foreground) !important;
+}
+
+.btn-outline:hover {
+  background-color: var(--muted) !important;
+}
+
+.btn-ghost {
+  background-color: transparent !important;
+  color: var(--foreground) !important;
+  border: none !important;
+}
+
+.btn-ghost:hover {
+  background-color: var(--muted) !important;
+}
+
+.btn-lg {
+  padding: 0.75rem 1.5rem;
+  font-size: 1.125rem;
+}
+
+.btn-sm {
+  padding: 0.375rem 0.75rem;
+  font-size: 0.875rem;
+}
+
+.btn-full {
+  width: 100%;
+}
+
+.card {
+  background-color: var(--card) !important;
+  color: var(--card-foreground) !important;
+  border-radius: var(--radius) !important;
+  border: 1px solid var(--border) !important;
+  overflow: hidden;
+}
+
+.card-content {
+  padding: 1.5rem;
+}
+
+.card-header {
+  padding: 1.5rem 1.5rem 0;
+}
+
+.card-title {
+  font-size: 1.125rem;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.25rem 0.75rem;
+  border-radius: calc(var(--radius) - 2px);
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+.badge-secondary {
+  background-color: var(--muted) !important;
+  color: var(--muted-foreground) !important;
+  border: none !important;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.form-label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  color: var(--muted-foreground);
+}
+
+.form-input,
+.form-textarea,
+.form-select {
+  width: 100%;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid var(--border);
+  border-radius: calc(var(--radius) - 2px);
+  background-color: var(--input-background);
+  font-size: 1rem;
+  transition: border-color 0.15s;
+}
+
+.form-input:focus,
+.form-textarea:focus,
+.form-select:focus {
+  outline: none;
+  border-color: var(--primary);
+}
+
+.form-textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.form-error {
+  color: var(--destructive);
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+}
+
+.grid {
+  display: grid;
+}
+
+.grid-cols-1 {
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+}
+
+.grid-cols-2 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.grid-cols-3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.grid-cols-4 {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+@media (min-width: 768px) {
+  .md\:grid-cols-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .md\:grid-cols-3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .md\:grid-cols-4 {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1024px) {
+  .lg\:grid-cols-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .lg\:grid-cols-3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .lg\:grid-cols-4 {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+.gap-2 {
+  gap: 0.5rem;
+}
+
+.gap-4 {
+  gap: 1rem;
+}
+
+.gap-6 {
+  gap: 1.5rem;
+}
+
+.gap-8 {
+  gap: 2rem;
+}
+
+.gap-12 {
+  gap: 3rem;
+}
+
+/* 
+  ПРИМЕР ИСПОЛЬЗОВАНИЯ CSS GRID #2 - СЕТКА ПРЕИМУЩЕСТВ
+  Класс advantages-grid создаёт адаптивную сетку для карточек преимуществ.
+  
+  На мобильных (по умолчанию):
+  - grid-template-columns: 1fr - одна колонка на всю ширину
+  - карточки располагаются друг под другом
+  
+  На планшетах и десктопе (>= 768px):
+  - grid-template-columns: repeat(3, 1fr) - три равные колонки
+  - карточки располагаются в ряд по 3 штуки
+  
+  gap: 2rem - отступы между карточками (одинаковые по горизонтали и вертикали)
+  
+  Grid автоматически распределяет элементы по ячейкам сетки.
+*/
+.advantages-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+@media (min-width: 768px) {
+  .advantages-grid {
+    grid-template-columns: repeat(3, 1fr); /* 3 колонки на >= 768px */
+  }
+}
+
+/* 
+  ПРИМЕР ИСПОЛЬЗОВАНИЯ CSS GRID #3 - СЕТКА ТОВАРОВ
+  Класс products-grid создаёт адаптивную сетку для карточек товаров
+  с тремя разными layout в зависимости от ширины экрана.
+  
+  Мобильные (<768px): 1 колонка
+  Планшеты (768-1023px): 2 колонки
+  Десктопы (>=1024px): 3 колонки
+  
+  Это классический подход mobile-first: сначала определяем стили
+  для маленьких экранов, затем "улучшаем" их для больших через
+  медиа-запросы.
+  
+  Grid идеален для каталогов товаров, т.к. автоматически размещает
+  карточки в сетку с равными размерами ячеек.
+*/
+.products-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .products-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 колонки на планшетах */
+  }
+}
+
+/* Для больших экранов (десктопов) увеличиваем до 3 колонок */
+@media (min-width: 1024px) {
+  .products-grid {
+    grid-template-columns: repeat(3, 1fr); /* 3 колонки на десктопах */
+  }
+}
+
+/* Утилитные классы для отступов между элементами */
+.space-y-1 > * + * {
+  margin-top: 0.25rem;
+}
+
+.space-y-2 > * + * {
+  margin-top: 0.5rem;
+}
+
+.space-y-3 > * + * {
+  margin-top: 0.75rem;
+}
+
+.space-y-4 > * + * {
+  margin-top: 1rem;
+}
+
+.space-y-6 > * + * {
+  margin-top: 1.5rem;
+}
+
+.border-b {
+  border-bottom: 1px solid var(--border);
+}
+
+.border-t {
+  border-top: 1px solid var(--border);
+}
+
+.border-t-2 {
+  border-top: 2px solid var(--border);
+}
+
+.border-primary {
+  border-color: var(--primary);
+}
+
+.border-transparent {
+  border-color: transparent;
+}
+
+.last\:border-0:last-child {
+  border-bottom: none;
+}
+
+.mt-2 {
+  margin-top: 0.5rem;
+}
+
+.mt-4 {
+  margin-top: 1rem;
+}
+
+.mt-6 {
+  margin-top: 1.5rem;
+}
+
+.mt-8 {
+  margin-top: 2rem;
+}
+
+.mt-12 {
+  margin-top: 3rem;
+}
+
+.mb-2 {
+  margin-bottom: 0.5rem;
+}
+
+.mb-4 {
+  margin-bottom: 1rem;
+}
+
+.mb-6 {
+  margin-bottom: 1.5rem;
+}
+
+.mb-8 {
+  margin-bottom: 2rem;
+}
+
+.mb-12 {
+  margin-bottom: 3rem;
+}
+
+.p-4 {
+  padding: 1rem;
+}
+
+.p-6 {
+  padding: 1.5rem;
+}
+
+.p-8 {
+  padding: 2rem;
+}
+
+.py-8 {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+.py-12 {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+
+.py-16 {
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+
+.px-4 {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.flex {
+  display: flex;
+}
+
+.inline-flex {
+  display: inline-flex;
+}
+
+.hidden {
+  display: none;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.items-start {
+  align-items: flex-start;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.flex-col {
+  flex-direction: column;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-sm {
+  font-size: 0.875rem;
+}
+
+.text-lg {
+  font-size: 1.125rem;
+}
+
+.text-xl {
+  font-size: 1.25rem;
+}
+
+.text-2xl {
+  font-size: 1.5rem;
+}
+
+.text-white {
+  color: white;
+}
+
+.text-foreground {
+  color: var(--foreground);
+}
+
+.text-muted {
+  color: var(--muted-foreground) !important;
+}
+
+.text-primary {
+  color: var(--primary) !important;
+}
+
+.text-destructive {
+  color: var(--destructive) !important;
+}
+
+.text-foreground {
+  color: var(--foreground) !important;
+}
+
+.opacity-80 {
+  opacity: 0.8;
+}
+
+.opacity-90 {
+  opacity: 0.9;
+}
+
+.bg-background {
+  background-color: var(--background);
+}
+
+.bg-primary {
+  background-color: var(--primary);
+}
+
+.bg-secondary {
+  background-color: var(--secondary);
+}
+
+.bg-muted {
+  background-color: var(--muted);
+}
+
+.bg-accent {
+  background-color: var(--accent);
+}
+
+.min-h-screen {
+  min-height: 100vh;
+}
+
+.w-full {
+  width: 100%;
+}
+
+.h-full {
+  height: 100%;
+}
+
+.aspect-square {
+  aspect-ratio: 1;
+}
+
+.aspect-4-3 {
+  aspect-ratio: 4 / 3;
+  position: relative;
+  background-color: var(--muted);
+}
+
+.aspect-4-3 img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 95%;
+  height: 95%;
+  object-fit: contain;
+  object-position: center;
+}
+
+.aspect-16-10 {
+  aspect-ratio: 16 / 10;
+}
+
+.rounded {
+  border-radius: var(--radius);
+}
+
+.rounded-lg {
+  border-radius: var(--radius);
+}
+
+.rounded-xl {
+  border-radius: calc(var(--radius) + 4px);
+}
+
+.rounded-full {
+  border-radius: 9999px;
+}
+
+.overflow-hidden {
+  overflow: hidden;
+}
+
+.object-cover {
+  object-fit: cover;
+}
+
+.shadow-sm {
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.shadow-lg {
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.transition {
+  transition: all 0.15s;
+}
+
+.transition-colors {
+  transition: color 0.15s;
+}
+
+.transition-transform {
+  transition: transform 0.3s;
+}
+
+.hover\:scale-105:hover {
+  transform: scale(1.05);
+}
+
+.hover\:shadow-lg:hover {
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+}
+
+.sticky {
+  position: sticky;
+}
+
+.top-24 {
+  top: 6rem;
+}
+
+.relative {
+  position: relative;
+}
+
+.absolute {
+  position: absolute;
+}
+
+.product-card {
+  cursor: pointer;
+  transition: box-shadow 0.15s;
+}
+
+.product-card:hover {
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+}
+
+.product-image {
+  transition: transform 0.3s;
+}
+
+.calendar-popover {
+  position: relative;
+}
+
+.calendar-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  margin-top: 0.5rem;
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1rem;
+  z-index: 50;
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+}
+
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 0.25rem;
+}
+
+.calendar-day {
+  padding: 0.5rem;
+  text-align: center;
+  border-radius: calc(var(--radius) - 2px);
+  cursor: pointer;
+  transition: background-color 0.15s;
+}
+
+.calendar-day:hover {
+  background-color: var(--muted);
+}
+
+.calendar-day.selected {
+  background-color: var(--primary);
+  color: white;
+}
+
+.calendar-day.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.toast-container {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.toast {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1rem;
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+  min-width: 300px;
+  animation: slideIn 0.3s ease-out;
+}
+
+.toast.success {
+  border-left: 4px solid #10b981;
+}
+
+.toast.error {
+  border-left: 4px solid var(--destructive);
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.page-header {
+  background-color: var(--primary);
+  color: white;
+  padding: 3rem 0;
+  text-align: center;
+}
+
+.page-header h1 {
+  color: white;
+  margin-bottom: 0.5rem;
+}
+
+.page-header p {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.section {
+  padding: 4rem 0;
+}
+
+.hero {
+  position: relative;
+  height: 600px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  overflow: hidden;
+  background-color: #7f7f7f;
+}
+
+.hero-image {
+  display: none;
+}
+
+.hero-overlay {
+  display: none;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 10;
+  color: white !important;
+  max-width: 42rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.hero-content h1 {
+  color: white !important;
+  font-size: 1.875rem !important;
+  font-weight: 500 !important;
+  margin-bottom: 1rem;
+}
+
+.hero-content p {
+  color: white !important;
+  margin-bottom: 2rem;
+  font-size: 1rem !important;
+}
+
+.hero .btn-outline {
+  color: white !important;
+  background-color: rgba(255, 255, 255, 0.15) !important;
+  border: 1px solid rgba(255, 255, 255, 0.3) !important;
+  padding: 0.625rem 1.25rem !important;
+  transition: all 0.2s ease !important;
+}
+
+.hero .btn-outline:hover {
+  background-color: rgba(255, 255, 255, 0.25) !important;
+  border-color: rgba(255, 255, 255, 0.5) !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
+  transform: translateY(-1px);
+}
+
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+  text-align: center;
+}
+
+.empty-state-icon {
+  width: 6rem;
+  height: 6rem;
+  color: var(--muted-foreground);
+  margin-bottom: 1rem;
+}
+
+.image-fallback {
+  background-color: var(--muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+.image-fallback img {
+  opacity: 0.3;
+}
+
+/* 
+  ПРИМЕР ИСПОЛЬЗОВАНИЯ CSS GRID #4 - ФИЛЬТРЫ
+  Класс filters-grid размещает элементы фильтров в адаптивную сетку.
+  
+  На мобильных: 1 колонка (фильтры друг под другом)
+  На планшетах/десктопе: 4 колонки (фильтры в ряд)
+  
+  Это позволяет компактно разместить несколько select-элементов
+  и кнопку на одной строке на больших экранах, а на маленьких
+  они располагаются вертикально для удобства использования.
+*/
+.filters-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+.btn:active {
+  transform: translateY(1px);
+  filter: brightness(0.95);
+}
+
+.nav-link:active,
+.footer-link:active {
+  transform: translateY(1px);
+  color: var(--accent);
+}
+
+@media (min-width: 768px) {
+  .filters-grid {
+    grid-template-columns: repeat(4, 1fr); /* 4 равные колонки на >= 768px */
+  }
+}
+
+/* Адаптивность для мобильных устройств */
+@media (max-width: 767px) {
+  .container {
+    padding: 0 1rem;
+  }
+
+  .hero {
+    height: 400px;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .hero-content h1 {
+    font-size: 1.25rem;
+  }
+}
+
+/* 
+  КАСТОМНЫЕ СТИЛИ ДЛЯ КОМПОНЕНТОВ BOOTSTRAP -Задание 11-
+  Этот блок переопределяет стандартные цвета аккордеона Bootstrap,
+  чтобы он соответствовал фирменному стилю нашего сайта.
+*/
+.accordion-button:not(.collapsed) {
+  color: var(--primary-foreground);
+  background-color: var(--primary);
+}
+
+.accordion-button:focus {
+  box-shadow: 0 0 0 0.25rem rgba(37, 99, 235, 0.25);
+}
+
+.accordion-button:not(.collapsed)::after {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23ffffff'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+}
+
+/* 
+  КАСТОМНЫЕ СТИЛИ ДЛЯ СЛАЙДЕРА -ЗАДАНИЕ 12-
+  Эти стили переопределяют стандартный вид готового скрипта Slick Slider,
+  чтобы он соответствовал дизайну сайта "Экстрим-Драйв".
+  Это и есть кастомизация, которая требуется по заданию.
+*/
+
+/* Контейнер для слайдера, добавляем отступы по бокам для стрелок */
+.popular-products-slider {
+  margin: 0 30px;
+}
+
+/* 
+  Стилизация стрелок "вперед" и "назад"
+*/
+.slick-prev,
+.slick-next {
+  width: 45px; /* Увеличиваем размер стрелок */
+  height: 45px;
+  z-index: 1; /* Чтобы стрелки были поверх слайдов */
+}
+
+/* 
+  Стилизация самих иконок стрелок. 
+  Slick Slider использует псевдоэлемент ::before для их отрисовки.
+*/
+.slick-prev::before,
+.slick-next::before {
+  font-size: 45px; /* Увеличиваем иконку стрелки */
+  color: var(--secondary); /* Задаем цвет, как у текста в футере */
+  opacity: 0.8;
+  transition: all 0.2s ease-in-out; /* Плавный переход при наведении */
+}
+
+/* Эффект при наведении на стрелки */
+.slick-prev:hover::before,
+.slick-next:hover::before {
+  color: var(--accent); /* При наведении стрелка становится оранжевой */
+  opacity: 1;
+}
+
+/* Расположение левой стрелки */
+.slick-prev {
+  left: -40px;
+}
+
+/* Расположение правой стрелки */
+.slick-next {
+  right: -40px;
+}
+
+/* 
+  Стилизация точек навигации под слайдером
+*/
+.slick-dots {
+  bottom: -45px; /* Отодвигаем точки ниже, чтобы не слипались со слайдами */
+}
+
+/* Стилизация иконки точки */
+.slick-dots li button::before {
+  font-size: 12px; /* Увеличиваем размер точек */
+  color: var(--border); /* Цвет неактивной точки */
+  opacity: 1;
+  transition: all 0.2s ease-in-out;
+}
+
+/* Стиль для активной точки */
+.slick-dots li.slick-active button::before {
+  color: var(--accent); /* Активная точка становится оранжевой */
+}
+
+/* Стиль для точки при наведении на нее курсора */
+.slick-dots li:hover button::before {
+  color: var(--secondary);
+}

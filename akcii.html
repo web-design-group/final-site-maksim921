@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Акции - Экстрим-Драйв</title>
+    <!-- Подключение Bootstrap и шрифтов -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    >
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    >
+
+    <!-- Подключение стилей для Slick Slider -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"
+    >
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"
+    >
+
+    <!-- Подключение кастомных стилей -->
+    <link rel="stylesheet" href="css/styles.css">
+  </head>
+  <body>
+    <!-- Шапка сайта с обновленной навигацией -->
+    <header class="header">
+      <div class="container">
+        <div
+          class="header-content d-flex align-items-center justify-content-between"
+        >
+          <div class="logo d-flex align-items-center">
+            <a
+              href="index.html"
+              class="d-flex align-items-center text-decoration-none text-white"
+              style="gap: 0.5rem"
+            >
+              <div class="logo-icons d-flex align-items-center">
+                <svg
+                  width="30"
+                  height="27"
+                  viewBox="0 0 30 27"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M9.33301 1.33301L14.6663 11.9997L21.333 5.33301L27.9997 25.333H1.33301L9.33301 1.33301Z"
+                    stroke="#FF6B35"
+                    stroke-width="2.66667"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+                <svg
+                  width="32"
+                  height="32"
+                  viewBox="0 0 32 32"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M24.6667 28.0003C27.244 28.0003 29.3333 25.911 29.3333 23.3337C29.3333 20.7563 27.244 18.667 24.6667 18.667C22.0893 18.667 20 20.7563 20 23.3337C20 25.911 22.0893 28.0003 24.6667 28.0003Z"
+                    stroke="#FF6B35"
+                    stroke-width="2.66667"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                  <path
+                    d="M7.33366 28.0003C9.91099 28.0003 12.0003 25.911 12.0003 23.3337C12.0003 20.7563 9.91099 18.667 7.33366 18.667C4.75633 18.667 2.66699 20.7563 2.66699 23.3337C2.66699 25.911 4.75633 28.0003 7.33366 28.0003Z"
+                    stroke="#FF6B35"
+                    stroke-width="2.66667"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                  <path
+                    d="M20.0003 7.99967C20.7367 7.99967 21.3337 7.40272 21.3337 6.66634C21.3337 5.92996 20.7367 5.33301 20.0003 5.33301C19.2639 5.33301 18.667 5.92996 18.667 6.66634C18.667 7.40272 19.2639 7.99967 20.0003 7.99967Z"
+                    stroke="#FF6B35"
+                    stroke-width="2.66667"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                  <path
+                    d="M16 23.3337V18.667L12 14.667L17.3333 10.667L20 14.667H22.6667"
+                    stroke="#FF6B35"
+                    stroke-width="2.66667"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </div>
+              <div>
+                <h1 class="mb-0">Экстрим-Драйв</h1>
+                <p class="mb-0">Прокат снаряжения</p>
+              </div>
+            </a>
+          </div>
+          <nav class="nav-desktop d-none d-md-flex align-items-center">
+            <a href="index.html" class="nav-link me-4">Главная</a>
+            <a href="moto.html" class="nav-link me-4">Мотоциклы</a>
+            <a href="#rental-terms" class="nav-link me-4">Условия аренды</a>
+            <a href="o-nas.html" class="nav-link me-4">О нас</a>
+            <a href="akcii.html" class="nav-link me-4">Акции</a>
+            <a href="index.html#contacts" class="nav-link">Контакты</a>
+          </nav>
+          <div class="header-actions d-flex align-items-center">
+            <button class="cart-btn">
+              <svg
+                class="icon"
+                viewBox="0 0 26 26"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <circle cx="9" cy="21" r="1"></circle>
+                <circle cx="20" cy="21" r="1"></circle>
+                <path
+                  d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"
+                ></path>
+              </svg>
+              <span id="cart-badge" class="cart-badge hidden">0</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="main-content">
+                <div class="page-header">
+          <div class="container">
+            <h1>Акции</h1>
+            <p>Выберите интересующую акцию</p>
+          </div>
+        </div>
+      <section class="section">
+        <div class="container">
+          <div class="popular-products-slider">
+            
+            <!-- Слайд 1 -->
+            <div class="card product-card">
+              <div class="aspect-4-3 overflow-hidden bg-muted">
+                <img
+                  src="images/1.png"
+                  alt="QJMOTOR SVT 650"
+                  class="product-image object-cover"
+                >
+              </div>
+              <div class="card-content">
+                <div
+                  class="d-flex align-items-start justify-content-between mb-2"
+                  style="gap: 0.5rem"
+                >
+                  <h3 class="mb-0">QJMOTOR SVT 650</h3>
+                  <span class="badge badge-secondary">All-Mountain</span>
+                </div>
+                <p class="text-muted mb-2">QJMOTOR</p>
+                <p class="text-foreground">2500 ₽/сутки</p>
+              </div>
+              <div class="card-content pt-0">
+                <a href="moto.html" class="btn btn-primary btn-full"
+                  >Подробнее</a
+                >
+              </div>
+            </div>
+            <!-- Слайд 2 -->
+            <div class="card product-card">
+              <div class="aspect-4-3 overflow-hidden bg-muted">
+                <div>
+                  <img
+                    src="images/2.png"
+                    style="width: 300px; height: 299px"
+                    alt="Honda Africa Twin"
+                    class="product-image object-cover"
+                  >
+                </div>
+              </div>
+              <div class="card-content">
+                <div
+                  class="d-flex align-items-start justify-content-between mb-2"
+                  style="gap: 0.5rem"
+                >
+                  <h3 class="mb-0">Honda Africa Twin</h3>
+                  <span class="badge badge-secondary">All-Mountain</span>
+                </div>
+                <p class="text-muted mb-2">Honda</p>
+                <p class="text-foreground">2500 ₽/сутки</p>
+              </div>
+              <div class="card-content pt-0">
+                <a href="moto.html" class="btn btn-primary btn-full"
+                  >Подробнее</a
+                >
+              </div>
+            </div>
+            <!-- Слайд 3 -->
+            <div class="card product-card">
+              <div class="aspect-4-3 overflow-hidden bg-muted">
+                <img
+                  src="images/3.png"
+                  style="width: 300px; height: 299px"
+                  alt="Burton Custom Flying V"
+                  class="product-image object-cover"
+                >
+              </div>
+              <div class="card-content">
+                <div
+                  class="d-flex align-items-start justify-content-between mb-2"
+                  style="gap: 0.5rem"
+                >
+                  <h3 class="mb-0">Burton Custom Flying V</h3>
+                  <span class="badge badge-secondary">All-Mountain</span>
+                </div>
+                <p class="text-muted mb-2">Burton</p>
+                <p class="text-foreground">2500 ₽/сутки</p>
+              </div>
+              <div class="card-content pt-0">
+                <a href="moto.html" class="btn btn-primary btn-full"
+                  >Подробнее</a
+                >
+              </div>
+            </div>
+            <!-- Слайд 4 -->
+            <div class="card product-card">
+              <div class="aspect-4-3 overflow-hidden bg-muted">
+                <img
+                  src="images/4.png"
+                  style="width: 300px; height: 299px"
+                  alt="BMW R1250 Adventure"
+                  class="product-image object-cover"
+                >
+              </div>
+              <div class="card-content">
+                <div
+                  class="d-flex align-items-start justify-content-between mb-2"
+                  style="gap: 0.5rem"
+                >
+                  <h3 class="mb-0">BMW R1250 Adventure</h3>
+                  <span class="badge badge-secondary">All-Mountain</span>
+                </div>
+                <p class="text-muted mb-2">BMW</p>
+                <p class="text-foreground">2500 ₽/сутки</p>
+              </div>
+              <div class="card-content pt-0">
+                <a href="moto.html" class="btn btn-primary btn-full"
+                  >Подробнее</a
+                >
+              </div>
+            </div>
+            <!-- Слайд 5 -->
+            <div class="card product-card">
+              <div class="aspect-4-3 overflow-hidden bg-muted">
+                <img
+                  src="images/5.png"
+                  style="width: 300px; height: 299px"
+                  alt="KTM 1290 Adventure R"
+                  class="product-image object-cover"
+                >
+              </div>
+              <div class="card-content">
+                <div
+                  class="d-flex align-items-start justify-content-between mb-2"
+                  style="gap: 0.5rem"
+                >
+                  <h3 class="mb-0">KTM 1290 Adventure R</h3>
+                  <span class="badge badge-secondary">All-Mountain</span>
+                </div>
+                <p class="text-muted mb-2">KTM</p>
+                <p class="text-foreground">2500 ₽/сутки</p>
+              </div>
+              <div class="card-content pt-0">
+                <a href="moto.html" class="btn btn-primary btn-full"
+                  >Подробнее</a
+                >
+              </div>
+            </div>
+            <!-- Слайд 6 -->
+            <div class="card product-card">
+              <div class="aspect-4-3 overflow-hidden bg-muted">
+                <img
+                  src="images/6.png"
+                  style="width: 300px; height: 299px"
+                  alt="Ducati Multistrada V4 S"
+                  class="product-image object-cover"
+                >
+              </div>
+              <div class="card-content">
+                <div
+                  class="d-flex align-items-start justify-content-between mb-2"
+                  style="gap: 0.5rem"
+                >
+                  <h3 class="mb-0">Ducati Multistrada V4 S</h3>
+                  <span class="badge badge-secondary">All-Mountain</span>
+                </div>
+                <p class="text-muted mb-2">Ducati</p>
+                <p class="text-foreground">2500 ₽/сутки</p>
+              </div>
+              <div class="card-content pt-0">
+                <a href="moto.html" class="btn btn-primary btn-full"
+                  >Подробнее</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Подвал сайта с обновленной навигацией -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-grid-grid">
+          <div>
+            <h3>Навигация</h3>
+            <ul>
+              <li><a href="index.html" class="footer-link">Главная</a></li>
+              <li>
+                <a href="moto.html" class="footer-link">Каталог мотоциклов</a>
+              </li>
+              <li><a href="#rental-terms" class="footer-link">Условия аренды</a></li>
+              <li><a href="akcii.html" class="footer-link">Акции</a></li>
+            </ul>
+          </div>
+          <div>
+            <h3>Компания</h3>
+            <ul>
+              <li><a href="o-nas.html" class="footer-link">О нас</a></li>
+              <li>
+                <a href="index.html#contacts" class="footer-link">Контакты</a>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h3>Контакты</h3>
+            <ul>
+              <li class="contact-item">
+                <svg
+                  class="icon-small"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path
+                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"
+                  ></path></svg
+                ><span>+7 (495) 123-45-67</span>
+              </li>
+              <li class="contact-item">
+                <svg
+                  class="icon-small"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path
+                    d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
+                  ></path>
+                  <polyline points="22,6 12,13 2,6"></polyline></svg
+                ><span>info@extremedrive.ru</span>
+              </li>
+              <li class="contact-item">
+                <svg
+                  class="icon-small"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                  <circle cx="12" cy="10" r="3"></circle></svg
+                ><span>Москва, ул. Спортивная, 10</span>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h3>Социальные сети</h3>
+            <div class="social-links">
+              <a href="#" aria-label="Instagram"
+                ><svg
+                  class="icon"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                  <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></a
+              ><a href="#" aria-label="Facebook"
+                ><svg
+                  class="icon"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path
+                    d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"
+                  ></path></svg></a
+              ><a href="#" aria-label="Twitter"
+                ><svg
+                  class="icon"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path
+                    d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"
+                  ></path></svg
+              ></a>
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>© 2025 Экстрим-Драйв. Все права защищены.</p>
+          <p>ИНН: 7701234567 | ОГРН: 1234567890123</p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Подключение скриптов для слайдера -->
+    <script
+      src="https://code.jquery.com/jquery-1.11.0.min.js"
+    ></script>
+    <script
+      src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"
+    ></script>
+
+    <!-- Инициализация слайдера -->
+    <script>
+      $(document).ready(function () {
+        $(".popular-products-slider").slick({
+          dots: true,
+          infinite: true,
+          speed: 300,
+          slidesToShow: 3,
+          slidesToScroll: 1,
+          responsive: [
+            { breakpoint: 1024, settings: { slidesToShow: 2 } },
+            { breakpoint: 768, settings: { slidesToShow: 1 } },
+          ],
+        });
+      });
+    </script>
+  </body>
+</html>

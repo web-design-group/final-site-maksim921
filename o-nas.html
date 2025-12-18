@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <!-- 
+      ============================================================
+      МЕТА-ИНФОРМАЦИЯ И ПОДКЛЮЧЕНИЕ ФАЙЛОВ
+      ============================================================
+      Это "голова" документа, здесь подключаются все необходимые стили,
+      шрифты и задаются основные параметры страницы.
+    -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>О нас - Экстрим-Драйв</title>
+    <!-- 
+      ПОДКЛЮЧЕНИЕ BOOTSTRAP:
+      Это самая важная строка для этого задания. Она подключает CSS-файл
+      фреймворка Bootstrap с удаленного сервера (CDN). Без этой строки
+      все классы Bootstrap (вроде row, col-md-6) не будут работать.
+    -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    >
+    <!-- Подключение шрифтов с Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    >
+    <!-- 
+      Подключение наших собственных стилей. 
+      Важно, что этот файл идет ПОСЛЕ Bootstrap, чтобы мы могли
+      при необходимости переопределять его стили своими.
+    -->
+    <link rel="stylesheet" href="css/styles.css">
+  </head>
+  <body>
+    <!-- 
+      ============================================================
+      ШАПКА САЙТА (HEADER)
+      ============================================================
+      Шапка взята с других страниц для сохранения единого стиля.
+      Единственное изменение - ссылка "О нас" теперь ведет на эту страницу.
+    -->
+    <header class="header">
+      <div class="container">
+        <div
+          class="header-content d-flex align-items-center justify-content-between"
+        >
+          <div class="logo d-flex align-items-center">
+            <a
+              href="index.html"
+              class="d-flex align-items-center text-decoration-none text-white"
+              style="gap: 0.5rem"
+            >
+              <div class="logo-icons d-flex align-items-center">
+                <svg
+                  width="30"
+                  height="27"
+                  viewBox="0 0 30 27"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M9.33301 1.33301L14.6663 11.9997L21.333 5.33301L27.9997 25.333H1.33301L9.33301 1.33301Z"
+                    stroke="#FF6B35"
+                    stroke-width="2.66667"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+                <svg
+                  width="32"
+                  height="32"
+                  viewBox="0 0 32 32"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M24.6667 28.0003C27.244 28.0003 29.3333 25.911 29.3333 23.3337C29.3333 20.7563 27.244 18.667 24.6667 18.667C22.0893 18.667 20 20.7563 20 23.3337C20 25.911 22.0893 28.0003 24.6667 28.0003Z"
+                    stroke="#FF6B35"
+                    stroke-width="2.66667"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                  <path
+                    d="M7.33366 28.0003C9.91099 28.0003 12.0003 25.911 12.0003 23.3337C12.0003 20.7563 9.91099 18.667 7.33366 18.667C4.75633 18.667 2.66699 20.7563 2.66699 23.3337C2.66699 25.911 4.75633 28.0003 7.33366 28.0003Z"
+                    stroke="#FF6B35"
+                    stroke-width="2.66667"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                  <path
+                    d="M20.0003 7.99967C20.7367 7.99967 21.3337 7.40272 21.3337 6.66634C21.3337 5.92996 20.7367 5.33301 20.0003 5.33301C19.2639 5.33301 18.667 5.92996 18.667 6.66634C18.667 7.40272 19.2639 7.99967 20.0003 7.99967Z"
+                    stroke="#FF6B35"
+                    stroke-width="2.66667"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                  <path
+                    d="M16 23.3337V18.667L12 14.667L17.3333 10.667L20 14.667H22.6667"
+                    stroke="#FF6B35"
+                    stroke-width="2.66667"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </div>
+              <div>
+                <h1 class="mb-0">Экстрим-Драйв</h1>
+                <p class="mb-0">Прокат снаряжения</p>
+              </div>
+            </a>
+          </div>
+          <nav class="nav-desktop d-none d-md-flex align-items-center">
+            <a href="index.html" class="nav-link me-4">Главная</a>
+            <a href="moto.html" class="nav-link me-4">Мотоциклы</a>
+            <a href="index.html#rental-terms" class="nav-link me-4"
+              >Условия аренды</a
+            >
+            <a href="o-nas.html" class="nav-link me-4">О нас</a>
+            <a href="akcii.html" class="nav-link me-4">Акции</a>
+            <a href="index.html#contacts" class="nav-link">Контакты</a>
+          </nav>
+          <div class="header-actions d-flex align-items-center">
+            <button class="cart-btn">
+              <svg
+                class="icon"
+                viewBox="0 0 26 26"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <circle cx="9" cy="21" r="1" />
+                <circle cx="20" cy="21" r="1" />
+                <path
+                  d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"
+                />
+              </svg>
+              <span id="cart-badge" class="cart-badge hidden">0</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="main-content">
+      <!-- Заголовок страницы -->
+      <div class="page-header">
+        <div class="container">
+          <h1>О нас</h1>
+          <p>Экстрим-Драйв - ваш партнер в мире экстремальных приключений</p>
+        </div>
+      </div>
+
+      <!-- 
+        ============================================================
+        СЕКЦИЯ "НАШИ ЦЕННОСТИ" - ПРИМЕНЕНИЕ СЕТКИ BOOTSTRAP
+        ============================================================
+        Это основная часть задания: показать использование адаптивной сетки.
+      -->
+      <section class="section">
+        <div class="container">
+          <h2 class="text-center mb-5">Наши ценности</h2>
+          <!-- 
+            КЛАСС "ROW":
+            Это контейнер-строка для колонок. Все колонки внутри одного "row"
+            выстраиваются в один ряд (пока есть место).
+            Класс "g-4" задает отступы (gutters) между колонками.
+          -->
+          <div class="row g-4">
+            <!-- 
+              КЛАССЫ КОЛОНОК (col-lg-3, col-md-6):
+              Это и есть магия Bootstrap. Сетка делится на 12 частей.
+              - "col-lg-3": На больших экранах (large, >=992px) эта колонка
+                займет 3 из 12 частей. 12 / 3 = 4. Значит, в ряд поместится 4 карточки.
+              - "col-md-6": На средних экранах (medium, >=768px) колонка
+                займет 6 из 12 частей. 12 / 6 = 2. В ряд поместится 2 карточки.
+              - На маленьких экранах (<768px) эти классы не действуют, и каждая
+                колонка занимает всю ширину, выстраиваясь друг под другом.
+              Таким образом достигается адаптивность.
+            -->
+            <div class="col-lg-3 col-md-6">
+              <div class="card card-values text-center h-100">
+                <div class="card-body">
+                  <div class="icon-circle mx-auto mb-3">
+                    <svg
+                      width="64"
+                      height="64"
+                      viewBox="0 0 64 64"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M0 32C0 14.3269 14.3269 0 32 0C49.6731 0 64 14.3269 64 32C64 49.6731 49.6731 64 32 64C14.3269 64 0 49.6731 0 32Z"
+                        fill="#2563EB"
+                        fill-opacity="0.1"
+                      />
+                      <path
+                        d="M36.6359 33.1865L38.6559 44.5545C38.6785 44.6884 38.6598 44.826 38.6021 44.9489C38.5444 45.0718 38.4506 45.1741 38.3332 45.2423C38.2157 45.3104 38.0803 45.341 37.945 45.3301C37.8097 45.3192 37.6809 45.2673 37.5759 45.1812L32.8026 41.5985C32.5721 41.4264 32.2922 41.3334 32.0046 41.3334C31.7169 41.3334 31.437 41.4264 31.2066 41.5985L26.4252 45.1799C26.3203 45.2658 26.1917 45.3177 26.0566 45.3286C25.9214 45.3395 25.7861 45.309 25.6688 45.241C25.5515 45.1731 25.4576 45.071 25.3998 44.9483C25.342 44.8256 25.323 44.6883 25.3452 44.5545L27.3639 33.1865"
+                        stroke="#2563EB"
+                        stroke-width="2.66667"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                      <path
+                        d="M32 34.667C36.4183 34.667 40 31.0853 40 26.667C40 22.2487 36.4183 18.667 32 18.667C27.5817 18.667 24 22.2487 24 26.667C24 31.0853 27.5817 34.667 32 34.667Z"
+                        stroke="#2563EB"
+                        stroke-width="2.66667"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                  </div>
+                  <h3 class="card-title">Качество</h3>
+                  <p class="card-text">
+                    Только проверенное оборудование от производителей
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+              <div class="card card-values text-center h-100">
+                <div class="card-body">
+                  <div class="icon-circle mx-auto mb-3">
+                    <svg
+                      width="64"
+                      height="64"
+                      viewBox="0 0 64 64"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M0 32C0 14.3269 14.3269 0 32 0C49.6731 0 64 14.3269 64 32C64 49.6731 49.6731 64 32 64C14.3269 64 0 49.6731 0 32Z"
+                        fill="#FF6B35"
+                        fill-opacity="0.1"
+                      />
+                      <path
+                        d="M37.3334 44V41.3333C37.3334 39.9188 36.7715 38.5623 35.7713 37.5621C34.7711 36.5619 33.4146 36 32.0001 36H24.0001C22.5856 36 21.229 36.5619 20.2288 37.5621C19.2287 38.5623 18.6667 39.9188 18.6667 41.3333V44"
+                        stroke="#FF6B35"
+                        stroke-width="2.66667"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                      <path
+                        d="M37.3333 20.1709C38.4769 20.4674 39.4898 21.1353 40.2128 22.0696C40.9359 23.004 41.3282 24.1521 41.3282 25.3336C41.3282 26.515 40.9359 27.6631 40.2128 28.5975C39.4898 29.5319 38.4769 30.1997 37.3333 30.4962"
+                        stroke="#FF6B35"
+                        stroke-width="2.66667"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                      <path
+                        d="M45.3333 43.9995V41.3329C45.3324 40.1512 44.9391 39.0032 44.2151 38.0693C43.4911 37.1353 42.4774 36.4683 41.3333 36.1729"
+                        stroke="#FF6B35"
+                        stroke-width="2.66667"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                      <path
+                        d="M28.0001 30.6667C30.9456 30.6667 33.3334 28.2789 33.3334 25.3333C33.3334 22.3878 30.9456 20 28.0001 20C25.0546 20 22.6667 22.3878 22.6667 25.3333C22.6667 28.2789 25.0546 30.6667 28.0001 30.6667Z"
+                        stroke="#FF6B35"
+                        stroke-width="2.66667"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                  </div>
+                  <h3 class="card-title">Клиентоориентированность</h3>
+                  <p class="card-text">
+                    Индивидуальный подход к каждому клиенту
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+              <div class="card card-values text-center h-100">
+                <div class="card-body">
+                  <div class="icon-circle mx-auto mb-3">
+                    <svg
+                      width="64"
+                      height="64"
+                      viewBox="0 0 64 64"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M0 32C0 14.3269 14.3269 0 32 0C49.6731 0 64 14.3269 64 32C64 49.6731 49.6731 64 32 64C14.3269 64 0 49.6731 0 32Z"
+                        fill="#4B5563"
+                        fill-opacity="0.1"
+                      />
+                      <path
+                        d="M32.0001 45.3337C39.3639 45.3337 45.3334 39.3641 45.3334 32.0003C45.3334 24.6365 39.3639 18.667 32.0001 18.667C24.6363 18.667 18.6667 24.6365 18.6667 32.0003C18.6667 39.3641 24.6363 45.3337 32.0001 45.3337Z"
+                        stroke="#4B5563"
+                        stroke-width="2.66667"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                      <path
+                        d="M32 40C36.4183 40 40 36.4183 40 32C40 27.5817 36.4183 24 32 24C27.5817 24 24 27.5817 24 32C24 36.4183 27.5817 40 32 40Z"
+                        stroke="#4B5563"
+                        stroke-width="2.66667"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                      <path
+                        d="M31.9999 34.6663C33.4727 34.6663 34.6666 33.4724 34.6666 31.9997C34.6666 30.5269 33.4727 29.333 31.9999 29.333C30.5272 29.333 29.3333 30.5269 29.3333 31.9997C29.3333 33.4724 30.5272 34.6663 31.9999 34.6663Z"
+                        stroke="#4B5563"
+                        stroke-width="2.66667"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                  </div>
+                  <h3 class="card-title">Профессионализм</h3>
+                  <p class="card-text">
+                    Опытная команда с глубокими знаниями продукта
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+              <div class="card card-values text-center h-100">
+                <div class="card-body">
+                  <div class="icon-circle mx-auto mb-3">
+                    <svg
+                      width="64"
+                      height="64"
+                      viewBox="0 0 64 64"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M0 32C0 14.3269 14.3269 0 32 0C49.6731 0 64 14.3269 64 32C64 49.6731 49.6731 64 32 64C14.3269 64 0 49.6731 0 32Z"
+                        fill="#2563EB"
+                        fill-opacity="0.1"
+                      />
+                      <path
+                        d="M18.6666 28.6664C18.6667 27.1827 19.1168 25.7338 19.9575 24.5113C20.7982 23.2887 21.99 22.3499 23.3754 21.8189C24.7609 21.2879 26.2748 21.1897 27.7173 21.5371C29.1598 21.8846 30.4629 22.6614 31.4546 23.7651C31.5245 23.8397 31.6089 23.8993 31.7027 23.94C31.7965 23.9807 31.8977 24.0017 32 24.0017C32.1022 24.0017 32.2034 23.9807 32.2972 23.94C32.391 23.8993 32.4754 23.8397 32.5453 23.7651C33.5339 22.6543 34.8373 21.8709 36.2821 21.5192C37.727 21.1675 39.2446 21.2642 40.6331 21.7964C42.0216 22.3286 43.2151 23.271 44.0548 24.4983C44.8944 25.7255 45.3404 27.1794 45.3333 28.6664C45.3333 31.7197 43.3333 33.9997 41.3333 35.9997L34.0106 43.0837C33.7622 43.3691 33.4559 43.5983 33.112 43.7561C32.7682 43.914 32.3947 43.9969 32.0163 43.9993C31.638 44.0016 31.2635 43.9235 30.9177 43.77C30.5719 43.6165 30.2627 43.3912 30.0106 43.1091L22.6666 35.9997C20.6666 33.9997 18.6666 31.7331 18.6666 28.6664Z"
+                        stroke="#2563EB"
+                        stroke-width="2.66667"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                  </div>
+                  <h3 class="card-title">Страсть</h3>
+                  <p class="card-text">
+                    Мы любим то, что делаем, и делимся этим с вами
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Секция "Наши достижения" -->
+      <section class="section pt-0">
+        <div class="container">
+          <h2 class="text-center mb-5">Наши достижения</h2>
+          <div class="card card-stats">
+            <div class="card-body">
+              <!-- Здесь тоже используется сетка Bootstrap для адаптивного расположения статистики -->
+              <div class="row text-center">
+                <!-- 
+                  Класс "col-6" здесь нужен для мобильных устройств. Он говорит:
+                  "Займи 6 из 12 колонок". Это значит, что на самых маленьких
+                  экранах будет по 2 элемента в ряд, а не 1, как было бы без этого.
+                -->
+                <div class="col-md-3 col-6">
+                  <p class="stat-number">5+</p>
+                  <p class="stat-label">Лет на рынке</p>
+                </div>
+                <div class="col-md-3 col-6">
+                  <p class="stat-number">10,000+</p>
+                  <p class="stat-label">Довольных клиентов</p>
+                </div>
+                <div class="col-md-3 col-6">
+                  <p class="stat-number">100+</p>
+                  <p class="stat-label">Единиц оборудования</p>
+                </div>
+                <div class="col-md-3 col-6">
+                  <p class="stat-number">24/7</p>
+                  <p class="stat-label">Служба поддержки</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Подвал сайта (без изменений) -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-grid-grid">
+          <div>
+            <h3>Навигация</h3>
+            <ul>
+              <li>
+                <a href="index.html" class="footer-link">Главная</a>
+              </li>
+              <li>
+                <a href="moto.html" class="footer-link">Каталог мотоциклов</a>
+              </li>
+              <li>
+                <a href="#rental-terms" class="footer-link">Условия аренды</a>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h3>Компания</h3>
+            <ul>
+              <li>
+                <a href="o-nas.html" class="footer-link">О нас</a>
+              </li>
+              <li>
+                <a href="#contacts" class="footer-link">Контакты</a>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h3>Контакты</h3>
+            <ul>
+              <li class="contact-item">
+                <svg
+                  class="icon-small"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path
+                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"
+                  />
+                </svg>
+                <span>+7 (495) 123-45-67</span>
+              </li>
+              <li class="contact-item">
+                <svg
+                  class="icon-small"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path
+                    d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
+                  />
+                  <polyline points="22,6 12,13 2,6" />
+                </svg>
+                <span>info@extremedrive.ru</span>
+              </li>
+              <li class="contact-item">
+                <svg
+                  class="icon-small"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                  <circle cx="12" cy="10" r="3" />
+                </svg>
+                <span>Москва, ул. Спортивная, 10</span>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h3>Социальные сети</h3>
+            <div class="social-links">
+              <a href="#" aria-label="Instagram">
+                <svg
+                  class="icon"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                  <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+                </svg>
+              </a>
+              <a href="#" aria-label="Facebook">
+                <svg
+                  class="icon"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path
+                    d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"
+                  />
+                </svg>
+              </a>
+              <a href="#" aria-label="Twitter">
+                <svg
+                  class="icon"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path
+                    d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"
+                  />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>© 2025 Экстрим-Драйв. Все права защищены.</p>
+          <p>ИНН: 7701234567 | ОГРН: 1234567890123</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- 
+      ============================================================
+      ПОДКЛЮЧЕНИЕ JAVASCRIPT BOOTSTRAP
+      ============================================================
+      Этот скрипт необходим для работы интерактивных компонентов,
+      таких как Аккордеон. Без него они не будут открываться и закрываться.
+      Его всегда размещают перед закрывающим тегом </body>.
+    -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
