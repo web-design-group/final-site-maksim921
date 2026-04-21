@@ -1,20 +1,11 @@
-<!-- 
-  ============================================================
-  СТРУКТУРА HTML-ДОКУМЕНТА
-  ============================================================
-  Это главная страница сайта "Экстрим-Драйв" по прокату мотоциклов.
--->
+
 <!DOCTYPE html>
 <html lang="ru">
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Экстрим-Драйв - Прокат снаряжения</title>
-    <!-- 
-      ============================================================
-      ПОДКЛЮЧЕНИЕ ВНЕШНИХ СТИЛЕЙ И ШРИФТОВ
-      ============================================================
-    -->
+  
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -25,21 +16,17 @@
     <link
       href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;700&display=swap"
       rel="stylesheet">
-    <!-- Подключение стилей -->
+   
     <link rel="stylesheet" href="css/styles.css">
   </head>
   <body>
-    <!-- 
-      ============================================================
-      ШАПКА САЙТА (HEADER)
-      ============================================================
-    -->
+    
     <header class="header">
       <div class="container">
         <div
           class="header-content d-flex align-items-center justify-content-between"
         >
-          <!-- ЛОГОТИП -->
+         
           <div class="logo d-flex align-items-center">
             <a
               href="index.html"
@@ -106,7 +93,7 @@
             </a>
           </div>
 
-          <!-- НАВИГАЦИЯ -->
+          
           <nav class="nav-desktop d-none d-md-flex align-items-center">
             <a href="index.html" class="nav-link me-4">Главная</a>
             <a href="moto.html" class="nav-link me-4">Мотоциклы</a>
@@ -116,7 +103,7 @@
             <a href="#contacts" class="nav-link">Контакты</a>
           </nav>
 
-          <!-- КОРЗИНА -->
+          
           <div class="header-actions d-flex align-items-center">
             <button class="cart-btn">
               <svg
@@ -139,9 +126,9 @@
       </div>
     </header>
 
-    <!-- ОСНОВНОЕ СОДЕРЖИМОЕ -->
+    
     <main class="main-content">
-      <!-- HERO СЕКЦИЯ -->
+     
       <section class="hero d-flex align-items-center">
         <div class="hero-image"></div>
         <div class="hero-overlay"></div>
@@ -201,7 +188,7 @@
         </div>
       </section>
 
-      <!-- ПРЕИМУЩЕСТВА -->
+      
       <section class="section bg-muted">
         <div class="container">
           <h2 class="text-center mb-12">Наши преимущества</h2>
@@ -325,12 +312,12 @@
         </div>
       </section>
 
-      <!-- ПОПУЛЯРНЫЕ МОДЕЛИ -->
+     
       <section class="section">
         <div class="container">
           <h2 class="text-center mb-12">Популярные модели</h2>
           <div class="products-grid">
-            <!-- КАРТОЧКА 1 -->
+            
             <div class="card product-card">
               <div class="aspect-4-3 overflow-hidden bg-muted">
                 <img
@@ -356,7 +343,7 @@
               </div>
             </div>
 
-            <!-- КАРТОЧКА 2 -->
+            
             <div class="card product-card">
               <div class="aspect-4-3 overflow-hidden bg-muted">
                 <div>
@@ -385,7 +372,7 @@
               </div>
             </div>
 
-            <!-- КАРТОЧКА 3 -->
+           
             <div class="card product-card">
               <div class="aspect-4-3 overflow-hidden bg-muted">
                 <img
@@ -412,7 +399,7 @@
               </div>
             </div>
 
-            <!-- КАРТОЧКА 4 -->
+            
             <div class="card product-card">
               <div class="aspect-4-3 overflow-hidden bg-muted">
                 <img
@@ -439,7 +426,7 @@
               </div>
             </div>
 
-            <!-- КАРТОЧКА 5 -->
+            
             <div class="card product-card">
               <div class="aspect-4-3 overflow-hidden bg-muted">
                 <img
@@ -466,7 +453,7 @@
               </div>
             </div>
 
-            <!-- КАРТОЧКА 6 -->
+           
             <div class="card product-card">
               <div class="aspect-4-3 overflow-hidden bg-muted">
                 <img
@@ -501,7 +488,7 @@
         </div>
       </section>
 
-      <!-- CALL TO ACTION -->
+      
       <section class="section bg-primary text-white">
         <div class="container text-center">
           <h2 class="text-white mb-4">Готовы к приключениям?</h2>
@@ -519,7 +506,7 @@
       </section>
     </main>
 
-    <!-- FOOTER -->
+   
     <footer class="footer">
       <div class="container">
         <div class="footer-grid-grid">
@@ -646,13 +633,13 @@
         </div>
       </div>
     </footer>
-    <!-- Подключение Bootstrap JS -->
+   
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
       crossorigin="anonymous"
     ></script>
-    <!-- Подключение вашего скрипта -->
+    
     <script src="js/script.js"></script>
   </body>
 </html>
