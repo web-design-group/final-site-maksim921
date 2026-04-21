@@ -1,11 +1,4 @@
-<!-- 
-  ============================================================
-  СТРАНИЦА КАТАЛОГА МОТОЦИКЛОВ
-  ============================================================
-  Это страница с каталогом товаров и фильтрами.
-  Использует семантическую разметку HTML5, JavaScript для
-  динамической фильтрации товаров.
--->
+
 <!DOCTYPE html>
 <html lang="ru">
   <head>
@@ -121,11 +114,7 @@
       </div>
     </header>
 
-    <!-- 
-      ============================================================
-      ОСНОВНОЕ СОДЕРЖИМОЕ - семантический тег <main>
-      ============================================================
-    -->
+  
     <main class="main-content">
       <div class="min-h-screen bg-background">
         <!-- Заголовок страницы каталога -->
@@ -137,20 +126,10 @@
         </div>
 
         <div class="container py-8">
-          <!-- 
-            ============================================================
-            ПАНЕЛЬ ФИЛЬТРОВ
-            ============================================================
-            Карточка с фильтрами для товаров.
-          -->
+         
           <div class="card mb-8">
             <div class="card-content">
-              <!-- 
-                ПРИМЕР ИСПОЛЬЗОВАНИЯ CSS GRID:
-                Класс "filters-grid" использует Grid для размещения
-                элементов фильтров в адаптивную сетку.
-                На мобильных: 1 колонка, на десктопе: 4 колонки.
-              -->
+             
               <div class="filters-grid">
                 <div class="form-group">
                   <label class="form-label">Производитель</label>
@@ -177,13 +156,7 @@
             </div>
           </div>
 
-          <!-- 
-            ============================================================
-            КОНТЕЙНЕР ДЛЯ ТОВАРОВ
-            ============================================================
-            Этот div будет заполнен товарами через JavaScript.
-            Использует CSS Grid для адаптивного размещения карточек.
-          -->
+          
           <div id="products-grid" class="products-grid"></div>
         </div>
       </div>
@@ -322,18 +295,9 @@
       integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
       crossorigin="anonymous"
     ></script>
-    <!-- 
-      ============================================================
-      JAVASCRIPT КОД ДЛЯ ДИНАМИЧЕСКОЙ ФИЛЬТРАЦИИ ТОВАРОВ
-      ============================================================
-      Этот скрипт отвечает за:
-      1. Загрузку массива товаров
-      2. Создание фильтров (производитель, класс, сортировка)
-      3. Динамическое отображение товаров на странице
-      4. Обработку событий фильтрации и сортировки
-    -->
+   
     <script>
-      // Массив с данными о товарах (в реальном проекте данные загружались бы с сервера)
+     
       const products = [
         {
           id: "mc-1",
@@ -391,14 +355,14 @@
         },
       ];
 
-      // Объект для управления корзиной (работает с localStorage браузера)
+      
       const CartManager = {
-        // Получить товары из корзины (из localStorage)
+       
         getCart() {
           const cart = localStorage.getItem("cart");
           return cart ? JSON.parse(cart) : [];
         },
-        // Обновить количество товаров в бейдже корзины
+       
         updateCartBadge() {
           const cart = this.getCart();
           const badge = document.getElementById("cart-badge");
@@ -413,13 +377,12 @@
         },
       };
 
-      // Функция для перехода на страницу товара
+      
       function viewProduct(productId) {
         window.location.href = `product.html?id=${productId}`;
       }
 
-      // Функция для генерации HTML-кода карточки товара
-      // Принимает объект товара и возвращает строку HTML
+     
       function renderProductCard(product) {
         return `
           <div class="card product-card" data-product-id="${product.id}">
@@ -457,19 +420,15 @@
         `;
       }
 
-      // ============================================================
-      // ГЛАВНАЯ ФУНКЦИЯ - СРАБАТЫВАЕТ ПОСЛЕ ЗАГРУЗКИ СТРАНИЦЫ
-      // ============================================================
-      // Событие DOMContentLoaded срабатывает когда HTML полностью загружен
-      // и готов к работе (но изображения и стили могут ещё загружаться)
+     
       document.addEventListener("DOMContentLoaded", () => {
-        // Фильтруем товары только категории "motorcycle"
+        
         const category = "motorcycle";
         const categoryProducts = products.filter(
           (p) => p.category === category
         );
 
-        // Получаем ссылки на элементы фильтров по их ID
+        
         const manufacturerFilter = document.getElementById(
           "manufacturer-filter"
         );
@@ -478,23 +437,22 @@
         const productsGrid = document.getElementById("products-grid");
         const resetBtn = document.getElementById("reset-filters-btn");
 
-        // Функция для заполнения выпадающих списков фильтров
+        
         function populateFilters() {
-          // Создаём уникальный список производителей из массива товаров
-          // Set автоматически удаляет дубликаты
+          
           const manufacturers = [
             ...new Set(
               categoryProducts.map((p) => p.manufacturer).filter(Boolean)
             ),
           ];
-          // Заполняем select производителей
+          
           manufacturerFilter.innerHTML =
             '<option value="all">Все производители</option>' +
             manufacturers
               .map((m) => `<option value="${m}">${m}</option>`)
               .join("");
 
-          // Аналогично создаём список категорий
+          
           const subcategories = [
             ...new Set(
               categoryProducts.map((p) => p.subcategory).filter(Boolean)
@@ -507,33 +465,33 @@
               .join("");
         }
 
-        // Функция для применения фильтров и отображения товаров
+        
         function applyFiltersAndRender() {
-          // Получаем текущие значения из фильтров
+          
           const manufacturer = manufacturerFilter.value;
           const subcategory = subcategoryFilter.value;
           const sort = sortFilter.value;
 
-          // Создаём копию массива товаров для фильтрации
+         
           let filtered = [...categoryProducts];
 
-          // Применяем фильтр по производителю
+          
           if (manufacturer !== "all") {
             filtered = filtered.filter((p) => p.manufacturer === manufacturer);
           }
-          // Применяем фильтр по категории
+          
           if (subcategory !== "all") {
             filtered = filtered.filter((p) => p.subcategory === subcategory);
           }
 
-          // Применяем сортировку
+          
           filtered.sort((a, b) => {
             if (sort === "price-asc") return a.price - b.price;
             if (sort === "price-desc") return b.price - a.price;
             return a.name.localeCompare(b.name);
           });
 
-          // Отображаем отфильтрованные товары на странице
+          
           if (filtered.length > 0) {
             productsGrid.innerHTML = filtered.map(renderProductCard).join("");
           } else {
@@ -542,7 +500,7 @@
           }
         }
 
-        // Функция для сброса всех фильтров к значениям по умолчанию
+        
         function resetFilters() {
           manufacturerFilter.value = "all";
           subcategoryFilter.value = "all";
@@ -550,13 +508,12 @@
           applyFiltersAndRender();
         }
 
-        // Инициализация страницы
-        CartManager.updateCartBadge(); // Обновляем бейдж корзины
-        populateFilters(); // Заполняем фильтры
-        applyFiltersAndRender(); // Отображаем все товары
+        
+        CartManager.updateCartBadge(); 
+        populateFilters(); 
+        applyFiltersAndRender(); 
 
-        // Добавляем обработчики событий на изменение фильтров
-        // Каждый раз при изменении фильтра товары будут перерисовываться
+        
         manufacturerFilter.addEventListener("change", applyFiltersAndRender);
         subcategoryFilter.addEventListener("change", applyFiltersAndRender);
         sortFilter.addEventListener("change", applyFiltersAndRender);
